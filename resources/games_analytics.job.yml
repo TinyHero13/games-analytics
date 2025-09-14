@@ -19,20 +19,6 @@ resources:
           notebook_task:
             notebook_path: ../src/notebook.ipynb
 
-        - task_key: refresh_pipeline
-          depends_on:
-            - task_key: notebook_task
-          pipeline_task:
-            pipeline_id: ${resources.pipelines.games_analytics_pipeline.id}
-
-        - task_key: main_task
-          depends_on:
-            - task_key: refresh_pipeline
-          environment_key: default
-          python_wheel_task:
-            package_name: games_analytics
-            entry_point: main
-
       # A list of task execution environment specifications that can be referenced by tasks of this job.
       environments:
         - environment_key: default
