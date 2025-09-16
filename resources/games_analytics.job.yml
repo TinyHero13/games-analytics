@@ -1,31 +1,18 @@
-# The main job for games_analytics.
 resources:
-  jobs:
-    games_analytics_job:
-      name: games_analytics_job
+  pipelines:
+    games_analytics_pipeline:
+      name: games_analytics_pipeline
+      
+      catalog: games_analytics
+      target: dev 
+      
+      continuous: false
 
-      trigger:
-        # Run this job every day, exactly one day from the last run; see https://docs.databricks.com/api/workspace/jobs/create#trigger
-        periodic:
-          interval: 1
-          unit: DAYS
+      environment:
+        dependencies: ["${workspace.artifact_path}/.internal/*.whl"]
+            
+      libraries:
+        - file:
+            path: ../src/games_pipeline.py
 
-      #email_notifications:
-      #  on_failure:
-      #    - your_email@example.com
-
-      tasks:
-        - task_key: notebook_task
-          notebook_task:
-            notebook_path: ../src/notebook.ipynb
-
-      # A list of task execution environment specifications that can be referenced by tasks of this job.
-      environments:
-        - environment_key: default
-
-          # Full documentation of this spec can be found at:
-          # https://docs.databricks.com/api/workspace/jobs/create#environments-spec
-          spec:
-            client: "2"
-            dependencies:
-              - ../dist/*.whl
+      serverless: true

@@ -60,5 +60,5 @@ class TwitchSourceReader(DataSourceReader):
                 id=str(game.get("id", "")),
                 name=str(game.get("name", "")),
                 box_art_url=str(game.get("box_art_url", "")),
-                igdb_id=str(game.get("igdb_id", "")) if game.get("igdb_id") else ""
+                igdb_id=str(game.get("igdb_id", ""))
             )
