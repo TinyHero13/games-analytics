@@ -1,5 +1,5 @@
 from pyspark.sql.datasource import DataSource, DataSourceReader
-from pyspark.sql.types import StructType, StructField, StringType, IntegerType, DoubleType, Row
+from pyspark.sql.types import StructType, StructField, StringType, Row
 import requests
 import time
 import json
@@ -11,16 +11,16 @@ class IGDBDataSource(DataSource):
     
     def schema(self):
         return StructType([
-            StructField("id", IntegerType()),
+            StructField("id", StringType()),
             StructField("name", StringType()),
             StructField("summary", StringType()),
-            StructField("rating", DoubleType()),
-            StructField("rating_count", IntegerType()),
-            StructField("aggregated_rating", DoubleType()),
-            StructField("aggregated_rating_count", IntegerType()),
-            StructField("total_rating", DoubleType()),
-            StructField("total_rating_count", IntegerType()),
-            StructField("first_release_date", IntegerType()),
+            StructField("rating", StringType()),
+            StructField("rating_count", StringType()),
+            StructField("aggregated_rating", StringType()),
+            StructField("aggregated_rating_count", StringType()),
+            StructField("total_rating", StringType()),
+            StructField("total_rating_count", StringType()),
+            StructField("first_release_date", StringType()),
             StructField("genres", StringType()),
             StructField("platforms", StringType()),
             StructField("themes", StringType()),
