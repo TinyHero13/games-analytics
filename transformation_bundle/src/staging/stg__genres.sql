@@ -1,4 +1,4 @@
-create or refresh materialized view game_genres (
+create or refresh materialized view stg_game_genres (
     igdb_id integer 
     , genre string
 )
