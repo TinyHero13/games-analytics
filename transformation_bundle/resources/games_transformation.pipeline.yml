@@ -1,0 +1,18 @@
+resources:
+  pipelines:
+    games_analytics_transformation:
+      name: games_analytics_transformation
+      
+      catalog: games_analytics
+      target: staging 
+      
+      continuous: false
+
+      environment:
+        dependencies: ["${workspace.artifact_path}/.internal/*.whl"]
+            
+      libraries:
+        - file:
+            path: ../src/staging/*.sql
+
+      serverless: true
