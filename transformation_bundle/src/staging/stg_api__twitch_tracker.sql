@@ -1,4 +1,4 @@
-create or refresh materialized view stg_twitch (
+create or refresh materialized view stg_twitch_tracker (
     twitch_tracker_id integer 
     , average_viewers integer
     , average_channels integer
