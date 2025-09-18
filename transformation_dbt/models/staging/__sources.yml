@@ -1,18 +1,15 @@
 version: 2
 
 sources:
-  - name: twitch_sources
-    schema: "{{ target.schema }}_raw"
-    description: Games data
+  - name: games_sources
+    schema: "{{ target.schema }}"
+    description: "Games data"
     tables:
       - name: twitch
-        identifier: games_analytics.raw.twitch
-        description: Twitch 
-        
+        description: "Twitch data"
+
       - name: igdb
-        identifier: games_analytics.raw.igdb_games
-        description: IGDB data
+        description: "IGDB data"
 
       - name: twitch_tracker
-        identifier: games_analytics.raw.twitch_tracker
-        description: Twitch Tracker data
+        description: "Twitch Tracker data"
