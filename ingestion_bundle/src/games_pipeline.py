@@ -3,7 +3,7 @@ from games_analytics.twitch_api import TwitchDataSource
 from games_analytics.twitch_tracker_api import TwitchTrackerDataSource
 from games_analytics.igdb_api import IGDBDataSource
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import current_timestamp
+from pyspark.sql.functions import  current_date
 
 client_id = dbutils.secrets.get("twitch", "client_id")
 client_secret = dbutils.secrets.get("twitch", "client_secret")
@@ -23,7 +23,7 @@ def twitch():
         .option("client_id", client_id)
         .option("client_secret", client_secret)
         .load()
-        .withColumn("ingestion_timestamp", current_timestamp())
+        .withColumn("ingestion_date",  current_date())
     )
 
 @dlt.table(
@@ -39,7 +39,7 @@ def twitch_tracker():
         .format("twitch_tracker")
         .option("game_ids", game_ids_str)
         .load()
-        .withColumn("ingestion_timestamp", current_timestamp())
+        .withColumn("ingestion_date",  current_date())
     )
 
 @dlt.table(
@@ -61,5 +61,5 @@ def igdb_games():
         .option("client_id", client_id)
         .option("client_secret", client_secret)
         .load()
-        .withColumn("ingestion_timestamp", current_timestamp())
+        .withColumn("ingestion_date",  current_date())
     )
