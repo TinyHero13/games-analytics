@@ -8,7 +8,7 @@ sources:
       - name: twitch
         description: "Twitch data"
 
-      - name: igdb
+      - name: igdb_games
         description: "IGDB data"
 
       - name: twitch_tracker
