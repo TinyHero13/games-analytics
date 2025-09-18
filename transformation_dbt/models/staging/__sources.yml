@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: games_sources
-    schema: "{{ target.schema }}"
+    schema: raw
     description: "Games data"
     tables:
       - name: twitch

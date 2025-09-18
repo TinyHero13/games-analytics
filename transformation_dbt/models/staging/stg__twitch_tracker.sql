@@ -6,7 +6,6 @@ with
             , cast(avg_channels as integer) as average_channels
             , cast(rank as integer) as rank
             , cast(hours_watched as integer) as hours_watched
-            , ingestion_date
         from {{ source('games_sources', 'twitch_tracker') }}
     )
 

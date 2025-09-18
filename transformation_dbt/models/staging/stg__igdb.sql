@@ -7,7 +7,6 @@ with
             , cast(total_rating as double) as total_rating
             , cast(total_rating_count as integer) as total_rating_count
             , cast(from_unixtime(first_release_date) as date) as release_date
-            , ingestion_date
         from {{ source('games_sources', 'igdb_games') }}
     )
 
