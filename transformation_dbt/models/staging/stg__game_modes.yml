@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg__game_modes
+    description: "Game modes (Single player, Multiplayer, Cooperative, etc.)"
+    columns:
+      - name: igdb_id
+        description: "Game ID in IGDB"
+        tests:
+          - not_null
+      - name: game_mode_id
+        description: "Unique game mode ID in IGDB"
+        tests:
+          - not_null
+      - name: game_mode
+        description: "Game mode name"
+        tests:
+          - not_null

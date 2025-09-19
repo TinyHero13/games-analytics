@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: int_twitch__enriched
+    description: "Twitch data enriched with Twitch Tracker metrics"
+    columns:
+      - name: twitch_id
+        description: "Game ID on Twitch"
+        tests:
+          - not_null
+      - name: game_name
+        description: "Game name"
+        tests:
+          - not_null
+      - name: box_art_url
+        description: "Game box art/cover URL on Twitch"
+      - name: igdb_id
+        description: "Game ID in IGDB"
+      - name: average_viewers
+        description: "Average viewers (Twitch Tracker)"
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              inclusive: true
+      - name: average_channels
+        description: "Average channels (Twitch Tracker)"
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              inclusive: true
+      - name: twitch_rank
+        description: "Twitch Tracker ranking"
+      - name: hours_watched
+        description: "Total hours watched"
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              inclusive: true

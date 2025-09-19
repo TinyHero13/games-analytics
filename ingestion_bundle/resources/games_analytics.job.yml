@@ -4,7 +4,7 @@ resources:
       name: games_analytics_pipeline
       
       catalog: games_analytics
-      target: dev 
+      target: raw 
       
       continuous: false
 

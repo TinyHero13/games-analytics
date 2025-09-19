@@ -1,0 +1,70 @@
+version: 2
+
+models:
+  - name: stg__multiplayer_mode
+    description: "Multiplayer modes extracted from games JSON"
+    columns:
+      - name: igdb_id
+        description: "Game ID in IGDB"
+        tests:
+          - not_null
+      - name: campaign_coop
+        description: "Indicates if supports cooperative campaign"
+        tests:
+          - accepted_values:
+              values: [true, false]
+      - name: drop_in
+        description: "Indicates if supports drop-in player entry"
+        tests:
+          - accepted_values:
+              values: [true, false]
+      - name: lan_coop
+        description: "Indicates if supports LAN cooperative"
+        tests:
+          - accepted_values:
+              values: [true, false]
+      - name: offline_coop
+        description: "Indicates if supports offline cooperative"
+        tests:
+          - accepted_values:
+              values: [true, false]
+      - name: offline_coop_max
+        description: "Maximum number of players in offline cooperative mode"
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              inclusive: true
+              where: "offline_coop_max is not null"
+      - name: offline_max
+        description: "Maximum number of offline players"
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              inclusive: true
+              where: "offline_max is not null"
+      - name: online_coop
+        description: "Indicates if supports online cooperative"
+        tests:
+          - accepted_values:
+              values: [true, false]
+      - name: online_coop_max
+        description: "Maximum number of players in online cooperative mode"
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              inclusive: true
+              where: "online_coop_max is not null"
+      - name: online_max
+        description: "Maximum number of online players"
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              inclusive: true
+              where: "online_max is not null"
+      - name: platform_id
+        description: "Platform-specific ID for this multiplayer mode"
+      - name: split_screen
+        description: "Indicates if supports split screen"
+        tests:
+          - accepted_values:
+              values: [true, false]

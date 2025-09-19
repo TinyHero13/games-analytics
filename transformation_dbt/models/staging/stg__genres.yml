@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg__genres
+    description: "Genres extracted from games (N:M relationship)"
+    columns:
+      - name: igdb_id
+        description: "Game ID in IGDB"
+        tests:
+          - not_null
+      - name: genre_id
+        description: "Unique genre ID in IGDB"
+        tests:
+          - not_null
+      - name: genre
+        description: "Genre name (Action, RPG, Strategy, etc.)"
+        tests:
+          - not_null

@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: dim_companies
+    description: "Companies dimension (developers and publishers)"
+    columns:
+      - name: company_key
+        description: "Dimension primary key"
+        tests:
+          - unique
+          - not_null
+      - name: company_name
+        description: "Company name"
+        tests:
+          - not_null
+      - name: is_developer
+        description: "Indicates if the company acts as developer"
+        tests:
+          - accepted_values:
+              values: [true, false]
+      - name: is_publisher
+        description: "Indicates if the company acts as publisher"
+        tests:
+          - accepted_values:
+              values: [true, false]
+      - name: updated_at
+        description: "Last update date"
+        tests:
+          - not_null

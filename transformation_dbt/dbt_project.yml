@@ -1,0 +1,21 @@
+name: games_analytics
+
+profile: games_analytics
+
+seed-paths: ["seeds"]
+model-paths: ["models"]
+macro-paths: ["macros"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  games_analytics:
+    staging:
+      +materialized: ephemeral
+    intermediate:
+      +materialized: ephemeral
+    marts:
+      +materialized: table

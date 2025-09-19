@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: int_languages__distinct
+    description: "Unique list of languages with consolidated information"
+    columns:
+      - name: language_id
+        description: "Unique language ID"
+        tests:
+          - unique
+          - not_null
+      - name: language_name
+        description: "Language name"
+        tests:
+          - not_null
+      - name: total_games
+        description: "Total number of games supporting this language"
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              inclusive: true

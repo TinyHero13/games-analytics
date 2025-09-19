@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: games_sources
+    schema: raw
+    description: "Dados de jogos"
+    tables:
+      - name: twitch
+        description: "Dados do Twitch"
+
+      - name: igdb_games
+        description: "Dados do IGDB"
+
+      - name: twitch_tracker
+        description: "Dados do Twitch Tracker"

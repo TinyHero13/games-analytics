@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: stg__twitch
+    description: "Top 100 most watched games on Twitch"
+    columns:
+      - name: twitch_id
+        description: "Unique ID in Twitch dataset"
+        tests:
+          - unique
+          - not_null
+      - name: igdb_id
+        description: "Corresponding IGDB ID (when found)"
+      - name: game_name
+        description: "Game name on Twitch"
+        tests:
+          - not_null
+      - name: box_art_url
+        description: "Game image URL"

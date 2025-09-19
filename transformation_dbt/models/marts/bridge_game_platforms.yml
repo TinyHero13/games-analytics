@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: bridge_game_platforms
+    description: "Tabela de relacionamento N:M entre jogos e plataformas"
+    columns:
+      - name: igdb_id
+        description: "ID do jogo no IGDB"
+        tests:
+          - not_null
+      - name: platform_key
+        description: "Chave da plataforma"
+        tests:
+          - not_null
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - igdb_id
+            - platform_key
