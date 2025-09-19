@@ -2,191 +2,191 @@ version: 2
 
 models:
   - name: fact_games
-    description: "Tabela fato contendo jogos com métricas e chaves para as dimensões"
+    description: "Fact table containing games with metrics and keys to dimensions"
     columns:
       - name: igdb_id
-        description: "Identificador único do jogo no IGDB"
+        description: "Unique game identifier in IGDB"
         tests:
           - not_null
           - unique
 
       - name: game_name
-        description: "Nome do jogo"
+        description: "Game name"
         tests:
           - not_null
 
       - name: summary
-        description: "Resumo/descrição do jogo"
+        description: "Game summary/description"
 
       - name: total_rating
-        description: "Nota total do jogo"
+        description: "Total game rating"
         tests:
           - dbt_utils.accepted_range:
               min_value: 0
               max_value: 100
 
       - name: total_rating_count
-        description: "Número de avaliações para a nota total"
+        description: "Number of reviews for total rating"
         tests:
           - dbt_utils.accepted_range:
               min_value: 0
 
       - name: release_date
-        description: "Data de lançamento do jogo"
+        description: "Game release date"
 
       - name: total_companies
-        description: "Número total de empresas envolvidas com o jogo"
+        description: "Total number of companies involved with the game"
         tests:
           - dbt_utils.accepted_range:
               min_value: 0
 
       - name: total_developers
-        description: "Número total de desenvolvedoras do jogo"
+        description: "Total number of game developers"
         tests:
           - dbt_utils.accepted_range:
               min_value: 0
 
       - name: total_publishers
-        description: "Número total de publishers do jogo"
+        description: "Total number of game publishers"
         tests:
           - dbt_utils.accepted_range:
               min_value: 0
 
       - name: primary_developer_key
-        description: "Chave da empresa desenvolvedora principal"
+        description: "Primary developer company key"
         tests:
           - relationships:
               to: ref('dim_companies')
               field: company_key
 
       - name: primary_publisher_key
-        description: "Chave da empresa publisher principal"
+        description: "Primary publisher company key"
         tests:
           - relationships:
               to: ref('dim_companies')
               field: company_key
 
       - name: total_genres
-        description: "Número total de gêneros do jogo"
+        description: "Total number of game genres"
         tests:
           - dbt_utils.accepted_range:
               min_value: 0
 
       - name: genre_keys
-        description: "Array de chaves de gêneros do jogo"
+        description: "Array of game genre keys"
 
       - name: total_keywords
-        description: "Número total de palavras-chave do jogo"
+        description: "Total number of game keywords"
         tests:
           - dbt_utils.accepted_range:
               min_value: 0
 
       - name: total_languages
-        description: "Número total de idiomas suportados"
+        description: "Total number of supported languages"
         tests:
           - dbt_utils.accepted_range:
               min_value: 0
 
       - name: audio_languages
-        description: "Número de idiomas com suporte de áudio"
+        description: "Number of languages with audio support"
         tests:
           - dbt_utils.accepted_range:
               min_value: 0
 
       - name: subtitle_languages
-        description: "Número de idiomas com suporte de legendas"
+        description: "Number of languages with subtitle support"
         tests:
           - dbt_utils.accepted_range:
               min_value: 0
 
       - name: interface_languages
-        description: "Número de idiomas com suporte de interface"
+        description: "Number of languages with interface support"
         tests:
           - dbt_utils.accepted_range:
               min_value: 0
 
       - name: total_game_modes
-        description: "Número total de modos de jogo"
+        description: "Total number of game modes"
         tests:
           - dbt_utils.accepted_range:
               min_value: 0
 
       - name: has_single_player
-        description: "Indica se o jogo tem modo single player"
+        description: "Indicates if the game has single player mode"
         tests:
           - accepted_values:
               values: [0, 1]
 
       - name: has_multiplayer
-        description: "Indica se o jogo tem modo multiplayer"
+        description: "Indicates if the game has multiplayer mode"
         tests:
           - accepted_values:
               values: [0, 1]
 
       - name: has_coop
-        description: "Indica se o jogo tem modo cooperativo"
+        description: "Indicates if the game has cooperative mode"
         tests:
           - accepted_values:
               values: [0, 1]
 
       - name: game_mode_keys
-        description: "Array de chaves de modos de jogo"
+        description: "Array of game mode keys"
 
       - name: total_platforms
-        description: "Número total de plataformas do jogo"
+        description: "Total number of game platforms"
         tests:
           - dbt_utils.accepted_range:
               min_value: 0
 
       - name: platform_keys
-        description: "Array de chaves de plataformas"
+        description: "Array of platform keys"
 
       - name: total_themes
-        description: "Número total de temas do jogo"
+        description: "Total number of game themes"
         tests:
           - dbt_utils.accepted_range:
               min_value: 0
 
       - name: twitch_viewers
-        description: "Média de espectadores na Twitch"
+        description: "Average Twitch viewers"
         tests:
           - dbt_utils.accepted_range:
               min_value: 0
 
       - name: twitch_channels
-        description: "Média de canais transmitindo o jogo na Twitch"
+        description: "Average channels broadcasting the game on Twitch"
         tests:
           - dbt_utils.accepted_range:
               min_value: 0
 
       - name: twitch_rank
-        description: "Ranking de popularidade na Twitch"
+        description: "Twitch popularity ranking"
         tests:
           - dbt_utils.accepted_range:
               min_value: 1
 
       - name: hours_watched
-        description: "Total de horas assistidas na Twitch"
+        description: "Total hours watched on Twitch"
         tests:
           - dbt_utils.accepted_range:
               min_value: 0
 
       - name: twitch_tracking_days
-        description: "Número de dias acompanhados na Twitch"
+        description: "Number of days tracked on Twitch"
         tests:
           - dbt_utils.accepted_range:
               min_value: 0
 
       - name: daily_hours_watched
-        description: "Média de horas assistidas por dia na Twitch"
+        description: "Average hours watched per day on Twitch"
         tests:
           - dbt_utils.accepted_range:
               min_value: 0
 
       - name: has_twitch_presence
-        description: "Indica se o jogo tem presença na Twitch"
+        description: "Indicates if the game has Twitch presence"
 
       - name: updated_at
-        description: "Timestamp da última atualização do registro"
+        description: "Last record update timestamp"
         tests:
           - not_null

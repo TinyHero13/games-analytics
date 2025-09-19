@@ -2,29 +2,29 @@ version: 2
 
 models:
   - name: stg__igdb
-    description: "Dados padronizados dos jogos vindos da API IGDB"
+    description: "Standardized game data from IGDB API"
     columns:
       - name: igdb_id
-        description: "ID único do jogo no IGDB"
+        description: "Unique game ID in IGDB"
         tests:
           - unique
           - not_null
       - name: name
-        description: "Nome do jogo"
+        description: "Game name"
         tests:
           - not_null
       - name: summary
-        description: "Resumo/descrição do jogo"
+        description: "Game summary/description"
       - name: total_rating
-        description: "Nota média do jogo (0-100)"
+        description: "Average game rating (0-100)"
         tests:
           - dbt_utils.accepted_range:
               min_value: 0
               max_value: 100
       - name: total_rating_count
-        description: "Número de avaliações para a nota total"
+        description: "Number of reviews for total rating"
         tests:
           - dbt_utils.accepted_range:
               min_value: 0
       - name: release_date
-        description: "Data de lançamento do jogo"
+        description: "Game release date"

@@ -2,18 +2,18 @@ version: 2
 
 models:
   - name: dim_themes
-    description: "Dimensão de temas dos jogos"
+    description: "Game themes dimension"
     columns:
       - name: theme_key
-        description: "Chave primária da dimensão"
+        description: "Dimension primary key"
         tests:
           - unique
           - not_null
       - name: theme_name
-        description: "Nome do tema"
+        description: "Theme name"
         tests:
           - not_null
       - name: updated_at
-        description: "Data da última atualização"
+        description: "Last update date"
         tests:
           - not_null

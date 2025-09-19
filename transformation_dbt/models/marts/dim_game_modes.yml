@@ -2,18 +2,18 @@ version: 2
 
 models:
   - name: dim_game_modes
-    description: "Dimensão de modos de jogo"
+    description: "Game modes dimension"
     columns:
       - name: game_mode_key
-        description: "Chave primária da dimensão"
+        description: "Dimension primary key"
         tests:
           - unique
           - not_null
       - name: game_mode_name
-        description: "Nome do modo de jogo"
+        description: "Game mode name"
         tests:
           - not_null
       - name: updated_at
-        description: "Data da última atualização"
+        description: "Last update date"
         tests:
           - not_null

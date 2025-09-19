@@ -2,23 +2,23 @@ version: 2
 
 models:
   - name: bridge_game_language_support
-    description: "Tabela de relacionamento N:M entre jogos e idiomas com tipo de suporte"
+    description: "N:M relationship table between games and languages with support type"
     columns:
       - name: igdb_id
-        description: "ID do jogo no IGDB"
+        description: "Game ID in IGDB"
         tests:
           - not_null
       - name: language_id
-        description: "ID do idioma"
+        description: "Language ID"
         tests:
           - not_null
       - name: language_support_type
-        description: "Tipo de suporte do idioma (1=audio, 2=subtitles, 3=interface)"
+        description: "Language support type (1=audio, 2=subtitles, 3=interface)"
         tests:
           - accepted_values:
               values: [1, 2, 3]
       - name: language_support_type_desc
-        description: "Descrição do tipo de suporte"
+        description: "Support type description"
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
