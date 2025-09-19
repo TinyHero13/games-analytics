@@ -161,23 +161,6 @@ dbt docs serve
 - `develop`: Development
 - `feature/*`: New features
 
-### Process
-
-```bash
-# 1. Create feature branch
-git checkout -b feature/new-feature
-
-# 2. Develop and test
-git add .
-git commit -m "feat: add new feature"
-
-# 3. Push and PR
-git push origin feature/new-feature
-# Create Pull Request to develop
-
-# 4. Merge to main after approval
-```
-
 ## Testing
 
 ### Quality Tests
