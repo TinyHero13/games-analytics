@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: int_games__companies
+    description: "Relacionamento entre jogos e empresas processado"
+    columns:
+      - name: igdb_id
+        description: "ID do jogo no IGDB"
+        tests:
+          - not_null
+      - name: name
+        description: "Nome do jogo"
+      - name: summary
+        description: "Resumo/descrição do jogo"
+      - name: total_rating
+        description: "Nota média do jogo (0-100)"
+      - name: total_rating_count
+        description: "Número de avaliações para a nota total"
+      - name: release_date
+        description: "Data de lançamento do jogo"
+      - name: company_name
+        description: "Nome da empresa (pode ser nulo se o jogo não tem empresa associada)"
+      - name: is_developer
+        description: "Indica se é desenvolvedora"
+      - name: is_publisher
+        description: "Indica se é publisher"

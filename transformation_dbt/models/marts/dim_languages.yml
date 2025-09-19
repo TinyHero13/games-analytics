@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: dim_languages
+    description: "Dimensão de idiomas suportados"
+    columns:
+      - name: language_id
+        description: "Chave primária da dimensão"
+        tests:
+          - unique
+          - not_null
+      - name: language_name
+        description: "Nome do idioma"
+        tests:
+          - not_null
+      - name: updated_at
+        description: "Data da última atualização"
+        tests:
+          - not_null

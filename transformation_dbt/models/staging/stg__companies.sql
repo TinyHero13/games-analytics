@@ -8,7 +8,10 @@ with
             , cast(company.publisher as boolean) as is_publisher
         from {{ source('games_sources', 'igdb_games') }}
         lateral view explode(
-            from_json(involved_companies, 'array<struct<id:int,company:struct<id:int,name:string>,developer:boolean,publisher:boolean>>')
+            from_json(
+                involved_companies, 
+                'array<struct<id:int,company:struct<id:int,name:string>,developer:boolean,publisher:boolean>>'
+            )
         ) as company
     )
 

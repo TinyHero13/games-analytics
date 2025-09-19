@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: int_twitch__enriched
+    description: "Dados do Twitch enriquecidos com métricas do Twitch Tracker"
+    columns:
+      - name: twitch_id
+        description: "ID do jogo no Twitch"
+        tests:
+          - not_null
+      - name: game_name
+        description: "Nome do jogo"
+        tests:
+          - not_null
+      - name: box_art_url
+        description: "URL da arte/capa do jogo no Twitch"
+      - name: igdb_id
+        description: "ID do jogo no IGDB"
+      - name: average_viewers
+        description: "Média de espectadores (Twitch Tracker)"
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              inclusive: true
+      - name: average_channels
+        description: "Média de canais (Twitch Tracker)"
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              inclusive: true
+      - name: twitch_rank
+        description: "Ranking no Twitch Tracker"
+      - name: hours_watched
+        description: "Total de horas assistidas"
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              inclusive: true

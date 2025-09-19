@@ -1,0 +1,70 @@
+version: 2
+
+models:
+  - name: stg__multiplayer_mode
+    description: "Modos multijogador dos jogos extraídos do JSON"
+    columns:
+      - name: igdb_id
+        description: "ID do jogo no IGDB"
+        tests:
+          - not_null
+      - name: campaign_coop
+        description: "Indica se suporta campanha cooperativa"
+        tests:
+          - accepted_values:
+              values: [true, false]
+      - name: drop_in
+        description: "Indica se suporta entrada direta de jogadores"
+        tests:
+          - accepted_values:
+              values: [true, false]
+      - name: lan_coop
+        description: "Indica se suporta cooperativo via LAN"
+        tests:
+          - accepted_values:
+              values: [true, false]
+      - name: offline_coop
+        description: "Indica se suporta cooperativo offline"
+        tests:
+          - accepted_values:
+              values: [true, false]
+      - name: offline_coop_max
+        description: "Número máximo de jogadores no modo cooperativo offline"
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              inclusive: true
+              where: "offline_coop_max is not null"
+      - name: offline_max
+        description: "Número máximo de jogadores offline"
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              inclusive: true
+              where: "offline_max is not null"
+      - name: online_coop
+        description: "Indica se suporta cooperativo online"
+        tests:
+          - accepted_values:
+              values: [true, false]
+      - name: online_coop_max
+        description: "Número máximo de jogadores no modo cooperativo online"
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              inclusive: true
+              where: "online_coop_max is not null"
+      - name: online_max
+        description: "Número máximo de jogadores online"
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              inclusive: true
+              where: "online_max is not null"
+      - name: platform_id
+        description: "ID da plataforma específica para este modo multijogador"
+      - name: split_screen
+        description: "Indica se suporta tela dividida"
+        tests:
+          - accepted_values:
+              values: [true, false]

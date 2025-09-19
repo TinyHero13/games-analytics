@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: dim_keywords
+    description: "Dimensão de palavras-chave/tags"
+    columns:
+      - name: keyword_key
+        description: "Chave primária da dimensão"
+        tests:
+          - unique
+          - not_null
+      - name: keyword_name
+        description: "Nome da palavra-chave"
+        tests:
+          - not_null
+      - name: updated_at
+        description: "Data da última atualização"
+        tests:
+          - not_null

@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg__platforms
+    description: "Plataformas extraídas dos jogos (relacionamento N:M)"
+    columns:
+      - name: igdb_id
+        description: "ID do jogo no IGDB"
+        tests:
+          - not_null
+      - name: platform_id
+        description: "ID único da plataforma no IGDB"
+        tests:
+          - not_null
+      - name: platform
+        description: "Nome da plataforma (PC, PlayStation 5, Xbox Series X|S, etc.)"
+        tests:
+          - not_null

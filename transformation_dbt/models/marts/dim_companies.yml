@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: dim_companies
+    description: "Dimensão de empresas (desenvolvedoras e publishers)"
+    columns:
+      - name: company_key
+        description: "Chave primária da dimensão"
+        tests:
+          - unique
+          - not_null
+      - name: company_name
+        description: "Nome da empresa"
+        tests:
+          - not_null
+      - name: is_developer
+        description: "Indica se a empresa atua como desenvolvedora"
+        tests:
+          - accepted_values:
+              values: [true, false]
+      - name: is_publisher
+        description: "Indica se a empresa atua como publisher"
+        tests:
+          - accepted_values:
+              values: [true, false]
+      - name: updated_at
+        description: "Data da última atualização"
+        tests:
+          - not_null

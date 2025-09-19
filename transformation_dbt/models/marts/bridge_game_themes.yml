@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: bridge_game_themes
+    description: "Tabela de relacionamento N:M entre jogos e temas"
+    columns:
+      - name: igdb_id
+        description: "ID do jogo no IGDB"
+        tests:
+          - not_null
+      - name: theme_key
+        description: "Chave do tema"
+        tests:
+          - not_null
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - igdb_id
+            - theme_key

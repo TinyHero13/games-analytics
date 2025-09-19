@@ -3,13 +3,13 @@ version: 2
 sources:
   - name: games_sources
     schema: raw
-    description: "Games data"
+    description: "Dados de jogos"
     tables:
       - name: twitch
-        description: "Twitch data"
+        description: "Dados do Twitch"
 
       - name: igdb_games
-        description: "IGDB data"
+        description: "Dados do IGDB"
 
       - name: twitch_tracker
-        description: "Twitch Tracker data"
+        description: "Dados do Twitch Tracker"

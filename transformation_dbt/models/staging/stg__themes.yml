@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg__themes
+    description: "Temas dos jogos (Terror, Fantasia, Ficção Científica, etc.)"
+    columns:
+      - name: igdb_id
+        description: "ID do jogo no IGDB"
+        tests:
+          - not_null
+      - name: theme_id
+        description: "ID único do tema no IGDB"
+        tests:
+          - not_null
+      - name: theme
+        description: "Nome do tema"
+        tests:
+          - not_null

@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: stg__similar_game
+    description: "Jogos similares baseados na API IGDB"
+    columns:
+      - name: igdb_id
+        description: "ID do jogo original no IGDB"
+        tests:
+          - not_null
+      - name: similar_game_name
+        description: "Nome do jogo similar"
+        tests:
+          - not_null

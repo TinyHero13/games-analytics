@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: dim_genres
+    description: "Dimensão de gêneros de jogos"
+    columns:
+      - name: genre_key
+        description: "Chave primária da dimensão"
+        tests:
+          - unique
+          - not_null
+      - name: genre_name
+        description: "Nome do gênero"
+        tests:
+          - not_null
+      - name: updated_at
+        description: "Data da última atualização"
+        tests:
+          - not_null

@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: stg__companies
+    description: "Empresas desenvolvedoras e publishers dos jogos"
+    columns:
+      - name: igdb_id
+        description: "ID do jogo no IGDB"
+        tests:
+          - not_null
+      - name: company_id
+        description: "ID único da empresa no IGDB"
+        tests:
+          - not_null
+      - name: company_name
+        description: "Nome da empresa"
+        tests:
+          - not_null
+      - name: is_developer
+        description: "Indica se a empresa é desenvolvedora do jogo"
+        tests:
+          - accepted_values:
+              values: [true, false]
+      - name: is_publisher
+        description: "Indica se a empresa é publisher do jogo"
+        tests:
+          - accepted_values:
+              values: [true, false]

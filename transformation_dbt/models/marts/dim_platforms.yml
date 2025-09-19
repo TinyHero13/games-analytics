@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: dim_platforms
+    description: "Dimensão de plataformas de jogos"
+    columns:
+      - name: platform_key
+        description: "Chave primária da dimensão"
+        tests:
+          - unique
+          - not_null
+      - name: platform_name
+        description: "Nome da plataforma"
+        tests:
+          - not_null
+      - name: platform_category
+        description: "Categoria da plataforma"
+      - name: updated_at
+        description: "Data da última atualização"
+        tests:
+          - not_null

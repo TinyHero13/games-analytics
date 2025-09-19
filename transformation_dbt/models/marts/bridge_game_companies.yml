@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: bridge_game_companies
+    description: "Tabela de relacionamento N:M entre jogos e empresas"
+    columns:
+      - name: igdb_id
+        description: "ID do jogo no IGDB"
+        tests:
+          - not_null
+      - name: company_key
+        description: "Chave da empresa"
+        tests:
+          - not_null
+      - name: is_developer
+        description: "Indica se é desenvolvedora"
+      - name: is_publisher
+        description: "Indica se é publisher"
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - igdb_id
+            - company_key

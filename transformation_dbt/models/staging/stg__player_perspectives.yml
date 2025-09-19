@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: stg__player_perspectives
+    description: "Perspectivas de jogador dos jogos (primeira pessoa, terceira pessoa, etc.)"
+    columns:
+      - name: igdb_id
+        description: "ID do jogo no IGDB"
+        tests:
+          - not_null
+      - name: player_perspective
+        description: "Nome da perspectiva (primeira pessoa, terceira pessoa, etc.)"
+        tests:
+          - not_null
