@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg__themes
+    description: "Game themes (Horror, Fantasy, Science Fiction, etc.)"
+    columns:
+      - name: igdb_id
+        description: "Game ID in IGDB"
+        tests:
+          - not_null
+      - name: theme_id
+        description: "Unique theme ID in IGDB"
+        tests:
+          - not_null
+      - name: theme
+        description: "Theme name"
+        tests:
+          - not_null

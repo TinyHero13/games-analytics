@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: bridge_game_keywords
+    description: "Tabela de relacionamento N:M entre jogos e palavras-chave"
+    columns:
+      - name: igdb_id
+        description: "ID do jogo no IGDB"
+        tests:
+          - not_null
+      - name: keyword_key
+        description: "Chave da palavra-chave"
+        tests:
+          - not_null
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - igdb_id
+            - keyword_key

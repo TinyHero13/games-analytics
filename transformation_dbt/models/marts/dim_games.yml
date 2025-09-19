@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: dim_games
+    description: "Main games dimension with consolidated information"
+    columns:
+      - name: igdb_id
+        description: "Original game ID in IGDB"
+        tests:
+          - unique
+          - not_null
+      - name: game_name
+        description: "Game name"
+        tests:
+          - not_null
+      - name: summary
+        description: "Game summary/description"
+      - name: total_rating
+        description: "Average game rating (0-100)"
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              max_value: 100
+              inclusive: true
+      - name: total_rating_count
+        description: "Number of reviews"
+      - name: release_date
+        description: "Release date"
+      - name: updated_at
+        description: "Last update date"
+        tests:
+          - not_null

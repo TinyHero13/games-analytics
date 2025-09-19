@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg__keywords
+    description: "Game keywords/tags"
+    columns:
+      - name: igdb_id
+        description: "Game ID in IGDB"
+        tests:
+          - not_null
+      - name: keyword_id
+        description: "Unique keyword ID in IGDB"
+        tests:
+          - not_null
+      - name: keyword_name
+        description: "Keyword/tag name"
+        tests:
+          - not_null

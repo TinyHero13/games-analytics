@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: stg__languages
+    description: "Languages supported by games"
+    columns:
+      - name: igdb_id
+        description: "Game ID in IGDB"
+        tests:
+          - not_null
+      - name: language_id
+        description: "Unique language ID"
+        tests:
+          - not_null
+      - name: language_name
+        description: "Language name"
+        tests:
+          - not_null
+      - name: language_support_type
+        description: "Support type (audio, subtitles, interface)"

@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: int_games__companies
+    description: "Processed relationship between games and companies"
+    columns:
+      - name: igdb_id
+        description: "Game ID in IGDB"
+        tests:
+          - not_null
+      - name: name
+        description: "Game name"
+      - name: summary
+        description: "Game summary/description"
+      - name: total_rating
+        description: "Average game rating (0-100)"
+      - name: total_rating_count
+        description: "Number of reviews for total rating"
+      - name: release_date
+        description: "Game release date"
+      - name: company_name
+        description: "Company name (can be null if game has no associated company)"
+      - name: is_developer
+        description: "Indicates if it's a developer"
+      - name: is_publisher
+        description: "Indicates if it's a publisher"

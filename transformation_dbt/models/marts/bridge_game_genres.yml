@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: bridge_game_genres
+    description: "Tabela de relacionamento N:M entre jogos e gêneros"
+    columns:
+      - name: igdb_id
+        description: "ID do jogo no IGDB"
+        tests:
+          - not_null
+      - name: genre_key
+        description: "Chave do gênero"
+        tests:
+          - not_null
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - igdb_id
+            - genre_key

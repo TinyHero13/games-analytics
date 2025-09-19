@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: stg__twitch_tracker
+    description: "Detailed Twitch Tracker viewing metrics"
+    columns:
+      - name: twitch_tracker_id
+        description: "Unique ID in Twitch Tracker"
+        tests:
+          - unique
+          - not_null
+
+      - name: average_viewers
+        description: "Average viewers"
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              inclusive: true
+      - name: average_channels
+        description: "Average broadcasting channels"
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              inclusive: true
+      - name: rank
+        description: "Twitch Tracker ranking"
+      - name: hours_watched
+        description: "Total hours watched"
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              inclusive: true

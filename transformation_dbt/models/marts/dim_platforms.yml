@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: dim_platforms
+    description: "Game platforms dimension"
+    columns:
+      - name: platform_key
+        description: "Dimension primary key"
+        tests:
+          - unique
+          - not_null
+      - name: platform_name
+        description: "Platform name"
+        tests:
+          - not_null
+      - name: platform_category
+        description: "Platform category"
+      - name: updated_at
+        description: "Last update date"
+        tests:
+          - not_null
